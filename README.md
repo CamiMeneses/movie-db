@@ -1,24 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project gets information from **TMDb** and records the upcoming songs, to see it you can check
+in this website **https://movie-tmdb.herokuapp.com/movies**
 
-Things you may want to cover:
+You can order the added songs with
+*https://movie-tmdb.herokuapp.com/movies/order_by/:order*
 
-* Ruby version
+Also, you can order_by:
+- id
+- tmdb_id
+- title
+- overview
+- vote_count
+- poster_path
+- release_date
+- created_at
+- updated_at
+- id_desc
+- tmdb_id_desc
+- title_desc
+- overview_desc
+- vote_count_desc
+- poster_path_desc
+- release_date_desc
+- created_at_desc
+- updated_at_desc
 
-* System dependencies
+For example **https://movie-tmdb.herokuapp.com/movies/order_by/id**
 
-* Configuration
+you can add a movie with the following link *https://movie-tmdb.herokuapp.com/movies/:title*
+change :title with a movie's name
 
-* Database creation
+For example: **https://movie-tmdb.herokuapp.com/movies/forrest**
 
-* Database initialization
+It will add the movie automatically
 
-* How to run the test suite
+**Only these endpoints exist:**
+- https://movie-tmdb.herokuapp.com/movies
+- https://movie-tmdb.herokuapp.com/movies/order_by/:order
+- https://movie-tmdb.herokuapp.com/movies/:title
 
-* Services (job queues, cache servers, search engines, etc.)
+It means that you are able to see, order and add movies but **not to delete** them once they have been added.
 
-* Deployment instructions
+On the other hand, you can use this repository following the next steps and play with your database:
+1. **Clone the respository:**
+git clone "put the link of this repository"
 
-* ...
+1. **Use a data base:** <br>
+  rake db:create <br>
+  rake db:migrate <br>
+_Note: Keep in mind this repository is using **Postgres**_
+
+1. Run this Rake to poblate the database with the upcoming movies from TMDb <br>
+**rake movies:upcoming**
